@@ -1,0 +1,85 @@
+[
+  {
+    "ContainingType": "blogAPI.Controllers.bloggerController",
+    "Method": "GetAllBlogger",
+    "RelativePath": "api/blogger",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.List\u00601[[blogAPI.Models.blogger, blogAPI, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "blogAPI.Controllers.bloggerController",
+    "Method": "AddNewBlogger",
+    "RelativePath": "api/blogger",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "blogger",
+        "Type": "blogAPI.Models.DTOs.AddBloggerDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "blogAPI.Models.blogger",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "blogAPI.Controllers.bloggerController",
+    "Method": "UpdateBlogger",
+    "RelativePath": "api/blogger",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "blogger",
+        "Type": "blogAPI.Models.blogger",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "blogAPI.Controllers.bloggerController",
+    "Method": "DeleteBlogger",
+    "RelativePath": "api/blogger",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  }
+]
