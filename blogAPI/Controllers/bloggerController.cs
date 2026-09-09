@@ -82,7 +82,14 @@ namespace blogAPI.Controllers
             [HttpDelete]
             public object DeleteBlogger(int id)
             {
-                return null;
+                var connector = new MySqlConnection(ConnectionString);
+                connector.Open();
+                var sql = $"DELETE FROM `blogger` WHERE Id = @id";
+                var cmd = new MySqlCommand(sql, connector);
+                cmd.Parameters.AddWithValue("@id", id);
+                cmd.ExecuteNonQuery();
+                connector.Close();
+                return new { message = "Blogger törölve!" };
             }
         }
     }
