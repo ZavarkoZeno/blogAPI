@@ -13,7 +13,7 @@
     }
   ],
   "paths": {
-    "/api/blogger": {
+    "/blogger": {
       "get": {
         "tags": [
           "blogger"
@@ -166,7 +166,7 @@
         }
       }
     },
-    "/api/Blogpost": {
+    "/post": {
       "get": {
         "tags": [
           "Blogpost"
@@ -211,17 +211,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/blogpost"
+                "$ref": "#/components/schemas/AddPostDTO"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/blogpost"
+                "$ref": "#/components/schemas/AddPostDTO"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/blogpost"
+                "$ref": "#/components/schemas/AddPostDTO"
               }
             }
           },
@@ -247,77 +247,6 @@
                 }
               }
             }
-          }
-        }
-      },
-      "put": {
-        "tags": [
-          "Blogpost"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/blogpost"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/blogpost"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/blogpost"
-              }
-            }
-          },
-          "required": true
-        },
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/blogpost"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/blogpost"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/blogpost"
-                }
-              }
-            }
-          }
-        }
-      },
-      "delete": {
-        "tags": [
-          "Blogpost"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "query",
-            "schema": {
-              "pattern": "^-?(?:0|[1-9]\\d*)$",
-              "type": [
-                "integer",
-                "string"
-              ],
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
           }
         }
       }
@@ -353,6 +282,25 @@
               "null",
               "string"
             ]
+          }
+        }
+      },
+      "AddPostDTO": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string"
+          },
+          "content": {
+            "type": "string"
+          },
+          "blogId": {
+            "pattern": "^-?(?:0|[1-9]\\d*)$",
+            "type": [
+              "integer",
+              "string"
+            ],
+            "format": "int32"
           }
         }
       },
@@ -411,16 +359,10 @@
             "format": "int32"
           },
           "title": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string"
           },
           "content": {
-            "type": [
-              "null",
-              "string"
-            ]
+            "type": "string"
           },
           "postTime": {
             "type": "string",

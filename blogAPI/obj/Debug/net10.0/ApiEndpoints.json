@@ -2,7 +2,7 @@
   {
     "ContainingType": "blogAPI.Controllers.bloggerController",
     "Method": "GetAllBlogger",
-    "RelativePath": "api/blogger",
+    "RelativePath": "blogger",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -22,7 +22,7 @@
   {
     "ContainingType": "blogAPI.Controllers.bloggerController",
     "Method": "AddNewBlogger",
-    "RelativePath": "api/blogger",
+    "RelativePath": "blogger",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -48,7 +48,7 @@
   {
     "ContainingType": "blogAPI.Controllers.bloggerController",
     "Method": "UpdateBloggerDTO",
-    "RelativePath": "api/blogger",
+    "RelativePath": "blogger",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -69,7 +69,7 @@
   {
     "ContainingType": "blogAPI.Controllers.bloggerController",
     "Method": "DeleteBlogger",
-    "RelativePath": "api/blogger",
+    "RelativePath": "blogger",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -85,7 +85,7 @@
   {
     "ContainingType": "blogAPI.Controllers.BlogpostController",
     "Method": "GetAllBlogposts",
-    "RelativePath": "api/Blogpost",
+    "RelativePath": "post",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -105,14 +105,14 @@
   {
     "ContainingType": "blogAPI.Controllers.BlogpostController",
     "Method": "AddNewBlogpost",
-    "RelativePath": "api/Blogpost",
+    "RelativePath": "post",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "blogpost",
-        "Type": "blogAPI.Models.blogpost",
+        "Name": "addPostDTO",
+        "Type": "blogAPI.Models.DTOs.AddPostDTO",
         "IsRequired": true
       }
     ],
@@ -124,54 +124,6 @@
           "application/json",
           "text/json"
         ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "blogAPI.Controllers.BlogpostController",
-    "Method": "UpdateBlogpost",
-    "RelativePath": "api/Blogpost",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "blogpost",
-        "Type": "blogAPI.Models.blogpost",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "blogAPI.Models.blogpost",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "blogAPI.Controllers.BlogpostController",
-    "Method": "DeleteBlogpost",
-    "RelativePath": "api/Blogpost",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "System.Void",
-        "MediaTypes": [],
         "StatusCode": 200
       }
     ]

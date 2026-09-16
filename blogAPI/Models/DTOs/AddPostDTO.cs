@@ -1,0 +1,9 @@
+﻿namespace blogAPI.Models.DTOs
+{
+    public class AddPostDTO
+    {
+        public string Title { get; set; }
+        public string Content { get; set; }
+        public int BlogId { get; set; }
+    }
+}

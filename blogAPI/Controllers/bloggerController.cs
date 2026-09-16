@@ -8,7 +8,7 @@ using System.Xml.Linq;
 
 namespace blogAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("blogger")]
     [ApiController]
     public class bloggerController : ControllerBase
     {
