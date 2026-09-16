@@ -67,6 +67,44 @@ namespace blogAPI.Controllers
             return post;
         }
 
-        
+        [HttpPut]
+        public blogpost UpdateBlogpost(AddPostDTO addPostDTO)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+            connector.Open();
+            var post = new blogpost
+            {
+                Title = addPostDTO.Title,
+                Content = addPostDTO.Content,
+                postTime = DateTime.Now,
+                updateTime = DateTime.Now,
+                BlogId = addPostDTO.BlogId
+            };
+            string sql = $"UPDATE `blogpost` SET `Title`=@Title,`Content`=@Content,`postTime`=@postTime,`updateTime`=@updateTime, WHERE `Id`=@Id";
+
+            var cmd = new MySqlCommand(sql, connector);
+
+            cmd.Parameters.AddWithValue("@Title", post.Title);
+            cmd.Parameters.AddWithValue("@Content", post.Content);
+            cmd.Parameters.AddWithValue("@postTime", post.postTime);
+            cmd.Parameters.AddWithValue("@updateTime", post.updateTime);
+            cmd.Parameters.AddWithValue("@BlogId", post.BlogId);
+
+            cmd.ExecuteNonQuery();
+            connector.Close();
+            return post;
+        }
+
+        [HttpDelete]
+        public void DeleteBlogpost(int id)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+            connector.Open();
+            string sql = "DELETE FROM `blogpost` WHERE `Id`=@Id";
+            var cmd = new MySqlCommand(sql, connector);
+            cmd.Parameters.AddWithValue("@Id", id);
+            cmd.ExecuteNonQuery();
+            connector.Close();
+        }
     }
 }
