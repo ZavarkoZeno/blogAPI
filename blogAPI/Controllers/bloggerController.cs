@@ -71,15 +71,35 @@ namespace blogAPI.Controllers
                 cmd.ExecuteNonQuery();
                 connector.Close();
                 return blg;
-            }
+        }
 
-            [HttpPut]
-            public object UpdateBlogger(int id, blogger blogger)
+        [HttpPut]
+        public object UpdateBloggerDTO([FromQuery]int id, [FromBody]UpdateBloggerDTO updateBloggerDto)
+        {
+            var connector = new MySqlConnection(ConnectionString);
+            connector.Open();
+            var sql = @"UPDATE `blogger` SET `Name` = @name, `Email` = @email, `Age` = @age, `Password` = @password WHERE `Id` = @id";
+            var cmd = new MySqlCommand(sql, connector);
+            cmd.Parameters.AddWithValue("@name", updateBloggerDto.Name);
+            cmd.Parameters.AddWithValue("@email", updateBloggerDto.Email);
+            cmd.Parameters.AddWithValue("@age", updateBloggerDto.Age);
+            cmd.Parameters.AddWithValue("@password", updateBloggerDto.Password);
+            cmd.Parameters.AddWithValue("@id", id);
+            cmd.ExecuteNonQuery();
+
+            var updatedBlogger = new blogger
             {
-                return null;
-            }
+                Name = updateBloggerDto.Name,
+                Email = updateBloggerDto.Email,
+                Age = updateBloggerDto.Age,
+                Password = updateBloggerDto.Password
+            };
+            connector.Close();
+            return new { message = "Blogger frissítve!" };
+        }
 
-            [HttpDelete]
+
+        [HttpDelete]
             public object DeleteBlogger(int id)
             {
                 var connector = new MySqlConnection(ConnectionString);
